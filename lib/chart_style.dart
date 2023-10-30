@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart' show Color;
+import 'package:flutter/material.dart' show Color, Colors;
 
 class ChartColors {
-  List<Color> bgColor = [Color(0xff18191d), Color(0xff18191d)];
+  List<Color> bgColor = [Color(0xff1F2630), Color(0xff1F2630)];
 
   Color kLineColor = Color(0xff4C86CD);
   Color lineFillColor = Color(0x554C86CD);
@@ -9,9 +9,12 @@ class ChartColors {
   Color ma5Color = Color(0xffC9B885);
   Color ma10Color = Color(0xff6CB0A6);
   Color ma30Color = Color(0xff9979C6);
-  Color upColor = Color(0xff4DAA90);
-  Color dnColor = Color(0xffC15466);
-  Color volColor = Color(0xff4729AE);
+  Color upColor = Color(0xff2EBD85);
+  Color dnColor = Color(0xffF6465D);
+  Color volColor = Colors.grey;
+
+  Color volUpColor = Color(0xFF27725B);
+  Color volDownColor = Color(0xFF8A3646);
 
   Color macdColor = Color(0xff4729AE);
   Color difColor = Color(0xffC9B885);

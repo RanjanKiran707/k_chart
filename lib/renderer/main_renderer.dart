@@ -5,6 +5,7 @@ import '../k_chart_widget.dart' show MainState;
 import 'base_chart_renderer.dart';
 
 enum VerticalTextAlignment { left, right }
+
 //For TrendLine
 double? trendLineMax;
 double? trendLineScale;
@@ -103,7 +104,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     for (int i = 0; i < (data.maValueList?.length ?? 0); i++) {
       if (data.maValueList?[i] != 0) {
         var item = TextSpan(
-            text: "MA${maDayList[i]}:${format(data.maValueList![i])}    ",
+            text: "MA(${maDayList[i]}): ${format(data.maValueList![i])}    ",
             style: getTextStyle(this.chartColors.getMAColor(i)));
         result.add(item);
       }
@@ -155,7 +156,10 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       tileMode: TileMode.clamp,
-      colors: [this.chartColors.lineFillColor, this.chartColors.lineFillInsideColor],
+      colors: [
+        this.chartColors.lineFillColor,
+        this.chartColors.lineFillInsideColor
+      ],
     ).createShader(Rect.fromLTRB(
         chartRect.left, chartRect.top, chartRect.right, chartRect.bottom));
     mLineFillPaint..shader = mLineFillShader;

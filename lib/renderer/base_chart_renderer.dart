@@ -11,12 +11,12 @@ abstract class BaseChartRenderer<T> {
   Paint chartPaint = Paint()
     ..isAntiAlias = true
     ..filterQuality = FilterQuality.high
-    ..strokeWidth = 1.0
+    ..strokeWidth = 2.0
     ..color = Colors.red;
   Paint gridPaint = Paint()
     ..isAntiAlias = true
     ..filterQuality = FilterQuality.high
-    ..strokeWidth = 0.5
+    ..strokeWidth = 0.1
     ..color = Color(0xff4c5c74);
 
   BaseChartRenderer({
@@ -69,6 +69,10 @@ abstract class BaseChartRenderer<T> {
   }
 
   TextStyle getTextStyle(Color color) {
-    return TextStyle(fontSize: 10.0, color: color);
+    return TextStyle(
+      fontSize: 11.0,
+      color: color,
+      fontWeight: FontWeight.w500,
+    );
   }
 }

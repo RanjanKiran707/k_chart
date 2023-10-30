@@ -11,12 +11,13 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
   VolRenderer(Rect mainRect, double maxValue, double minValue,
       double topPadding, int fixedLength, this.chartStyle, this.chartColors)
       : super(
-            chartRect: mainRect,
-            maxValue: maxValue,
-            minValue: minValue,
-            topPadding: topPadding,
-            fixedLength: fixedLength,
-            gridColor: chartColors.gridColor,) {
+          chartRect: mainRect,
+          maxValue: maxValue,
+          minValue: minValue,
+          topPadding: topPadding,
+          fixedLength: fixedLength,
+          gridColor: chartColors.gridColor,
+        ) {
     mVolWidth = this.chartStyle.volWidth;
   }
 
@@ -31,8 +32,8 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
           Rect.fromLTRB(curX - r, top, curX + r, bottom),
           chartPaint
             ..color = curPoint.close > curPoint.open
-                ? this.chartColors.upColor
-                : this.chartColors.dnColor);
+                ? this.chartColors.volUpColor
+                : this.chartColors.volDownColor);
     }
 
     if (lastPoint.MA5Volume != 0) {
@@ -54,15 +55,15 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
     TextSpan span = TextSpan(
       children: [
         TextSpan(
-            text: "VOL:${NumberUtil.format(data.vol)}    ",
+            text: "VOL: ${NumberUtil.format(data.vol)}    ",
             style: getTextStyle(this.chartColors.volColor)),
         if (data.MA5Volume.notNullOrZero)
           TextSpan(
-              text: "MA5:${NumberUtil.format(data.MA5Volume!)}    ",
+              text: "MA(5): ${NumberUtil.format(data.MA5Volume!)}    ",
               style: getTextStyle(this.chartColors.ma5Color)),
         if (data.MA10Volume.notNullOrZero)
           TextSpan(
-              text: "MA10:${NumberUtil.format(data.MA10Volume!)}    ",
+              text: "MA(10): ${NumberUtil.format(data.MA10Volume!)}    ",
               style: getTextStyle(this.chartColors.ma10Color)),
       ],
     );
