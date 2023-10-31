@@ -11,7 +11,7 @@ abstract class BaseChartRenderer<T> {
   Paint chartPaint = Paint()
     ..isAntiAlias = true
     ..filterQuality = FilterQuality.high
-    ..strokeWidth = 2.0
+    ..strokeWidth = 0.7
     ..color = Colors.red;
   Paint gridPaint = Paint()
     ..isAntiAlias = true
